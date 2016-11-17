@@ -16,17 +16,34 @@
           <a class="navbar-brand" href="#">cms-api</a>
         </div>
         <ul class="nav navbar-nav">
-          <li><a href="login.html">Login</a></li>
+          <li class="active"><a href="login.html">Login</a></li>
           <li><a href="register.html">Register</a></li>
         </ul>
       </div>
     </nav>
   <!-- navbar -->
   <div class="container">
-    <h1>Welcome to cms-api, please login or register</h1>
+    <!-- login -->
+    <div class="container">
+      <form id="form_login">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+          <button type="button" id="btn_login" class="btn btn-lg btn-success">Login</button>
+        </div>
+      </form>
+    </div>
+    <!-- end login -->
   </div>
 </body>
   <script src="./lib/jquery/dist/jquery.min.js"></script>
   <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./lib/jwt-decode/build/jwt-decode.min.js"></script>
+  <script src="./script/login.js"></script>
 </html>
