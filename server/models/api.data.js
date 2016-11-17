@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 let DatasSchema = new Schema ({
-  "letter" : String,
-  "frequency" : String
+  letter : String,
+  frequency : String
 },{
-  "timestamps" : true
-  })
+  timestamps : true
+})
 
 
-module.exports = mongoose.model('Users', DatasSchema)
+module.exports = mongoose.model('Datas', DatasSchema)
