@@ -1,5 +1,20 @@
 # cms-api
 
+## How to Run App
+1. client
+```sh
+cd client
+npm install
+bower install
+gulp
+```
+2. server
+```sh
+cd server
+npm install
+npm run dev
+```
+
 ## Dependencies
 1. express generator
 2. passport
