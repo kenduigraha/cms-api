@@ -61,8 +61,6 @@ Default development port & host : http://localhost:3000
 |--------|------|-------------|
 | /api/users | POST | register new user |
 | /api/users/login | POST | login user |
-| /api/users/seed | POST | seed user |
-| /api/users/deleteall | DELETE | delete all user |
 
 
 ### Datas
