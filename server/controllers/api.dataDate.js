@@ -23,7 +23,7 @@ let showAllDataDate = (req, res) => {
     }else{
       res.status(200).json(all_data)
     }
-  })
+  }).sort({_id: -1})
 }
 
 let editDataDate = (req, res) => {
