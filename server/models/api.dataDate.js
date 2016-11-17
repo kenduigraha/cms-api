@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 let DatasDatesSchema = new Schema ({
   date : Date,
-  frequency : String
+  frequency : Number
 },{
   timestamps : true
 })

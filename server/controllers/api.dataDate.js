@@ -49,7 +49,7 @@ let deleteDataDate = (req, res) => {
     }else{
       res.status(200).json(deleted_data)
     }
-  }
+  })
 }
 
 let seedDataDate = (req, res) => {

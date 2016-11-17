@@ -71,7 +71,7 @@ Default development port & host : http://localhost:3000
 | /api/datas/:id | PUT | edit a data |
 | /api/datas/:id | DELETE | deleet a data |
 | /api/datas/seed | POST | seed data |
-| /api/datas/deleteall | DELETE | delete all data |
+| /api/datas/ | DELETE | delete all data |
 
 ### Data_dates
 | Routes | HTTP | Description |
@@ -81,7 +81,7 @@ Default development port & host : http://localhost:3000
 | /api/data_dates/:id | PUT | edit a data_date |
 | /api/data_dates/:id | DELETE | deleet a data_date |
 | /api/data_dates/seed | POST | seed data_date |
-| /api/data_dates/deleteall | DELETE | delete all data_date |
+| /api/data_dates/ | DELETE | delete all data_date |
 
 # Contributor
 Ken Duigraha Putra &copy; 2016

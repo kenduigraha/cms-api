@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 let DatasSchema = new Schema ({
   letter : String,
-  frequency : String
+  frequency : Number
 },{
   timestamps : true
 })

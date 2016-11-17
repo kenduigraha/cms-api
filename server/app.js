@@ -20,7 +20,7 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
 //models
-const User = require('./models/api.users')
+const User = require('./models/api.user')
 
 //mongoose
 const mongoose = require('mongoose');

@@ -19,7 +19,6 @@ router.delete('/:id', controller.deleteData);
 router.post('/seed', controller.seedData);
 
 // delete all data
-router.delete('/deleteall', controller.deleteAllData);
-
+router.delete('/', controller.deleteAllData);
 
 module.exports = router;
