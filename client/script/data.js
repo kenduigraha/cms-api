@@ -50,9 +50,9 @@ $(document).ready(function(){
 
   // search
   // letter
-  $('#search').on('keyup', function(){
-    console.log($('#search').val().length);
-    var letter = $('#search').val()
+  $('#search_letter').on('keyup', function(){
+    console.log($('#search_letter').val().length);
+    var letter = $('#search_letter').val()
     if(letter.length > 0 ){
       $.ajax({
         url: 'http://localhost:3000/api/datas?letter='+letter,
@@ -61,7 +61,6 @@ $(document).ready(function(){
           var data_HTML = ``
           for (var i = 0; i < get_data.length; i++) {
             data_HTML += `
-            <tbody id="body_table">
               <tr id="${get_data[i]._id}">
                 <td>
                   ${get_data[i].letter}
@@ -74,10 +73,13 @@ $(document).ready(function(){
                   <button type="button" class="btn btn-danger" onclick="submitDeleteButton('${get_data[i]._id}')">Delete</button>
                 </td>
               </tr>
-            </tbody>
             `
-            $('#body_table').replaceWith(data_HTML)
           }
+          $('#body_table').remove()
+          $('#table').append(`
+          <tbody id="body_table"></tbody>
+          `)
+          $('#body_table').append(data_HTML)
         }
       })
     }else{
@@ -88,6 +90,49 @@ $(document).ready(function(){
       showAllData()
     }
   })
+
+  // frequency
+  $('#search_frequency').on('keyup', function(){
+    console.log($('#search_frequency').val().length);
+    var frequency = $('#search_frequency').val()
+    if(frequency.length > 0 ){
+      $.ajax({
+        url: 'http://localhost:3000/api/datas?frequency='+frequency,
+        success: function(get_data){
+          console.log('baru',get_data);
+          var data_HTML = ``
+          for (var i = 0; i < get_data.length; i++) {
+            data_HTML += `
+              <tr id="${get_data[i]._id}">
+                <td>
+                  ${get_data[i].letter}
+                </td>
+                <td>
+                  ${get_data[i].frequency}
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning" onclick="submitEditButton('${get_data[i]._id}')">Edit</button>
+                  <button type="button" class="btn btn-danger" onclick="submitDeleteButton('${get_data[i]._id}')">Delete</button>
+                </td>
+              </tr>
+            `
+          }
+          $('#body_table').remove()
+          $('#table').append(`
+          <tbody id="body_table"></tbody>
+          `)
+          $('#body_table').append(data_HTML)
+        }
+      })
+    }else{
+      $('#body_table').remove()
+      $('#table').append(`
+        <tbody id="body_table"></tbody>
+        `)
+      showAllData()
+    }
+  })
+
 
 })
 

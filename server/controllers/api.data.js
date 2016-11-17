@@ -17,7 +17,7 @@ let newData = (req, res) => {
 }
 
 let showAllData = (req, res) => {
-  // console.log(req.query.letter);
+  console.log(req.query);
   if(req.query.letter){
     Data.find({
       letter: req.query.letter
@@ -28,6 +28,18 @@ let showAllData = (req, res) => {
         res.status(200).json(get_one)
       }
     }).sort({_id: -1})
+
+  }else if(req.query.frequency){
+    Data.find({
+      frequency: req.query.frequency
+    }, (err, get_one) => {
+      if(err){
+        res.status(400).json(err)
+      }else{
+        res.status(200).json(get_one)
+      }
+    }).sort({_id: -1})
+    
   }else{
     Data.find({}, (err, all_data) => {
       if(err){
