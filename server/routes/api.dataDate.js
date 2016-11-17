@@ -19,7 +19,7 @@ router.delete('/:id', controller.deleteDataDate);
 router.post('/seed', controller.seedDataDate);
 
 // delete all datadate
-router.delete('/deleteall', controller.deleteAllDataDate);
+router.delete('/', controller.deleteAllDataDate);
 
 
 module.exports = router;
