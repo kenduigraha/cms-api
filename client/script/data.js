@@ -112,8 +112,6 @@ function submitDeleteButton(id){
         $(`#${deleted_data._id}`).remove()
       }
     })
-  } else {
-
   }
 }
 

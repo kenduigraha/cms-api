@@ -27,6 +27,7 @@ let showAllDataDate = (req, res) => {
 }
 
 let editDataDate = (req, res) => {
+  console.log(req.body);
   DataDate.findOneAndUpdate({
     _id: req.params.id
   }, req.body, {
@@ -35,6 +36,7 @@ let editDataDate = (req, res) => {
     if(err){
       res.status(400).json(err)
     }else{
+      console.log(updated_data);
       res.status(200).json(updated_data)
     }
   })
