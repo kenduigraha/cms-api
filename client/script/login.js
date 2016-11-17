@@ -12,6 +12,9 @@ const Auth = {
 }
 
 $(document).ready(function(){
+  // AUTH
+  if (localStorage.getItem('token')) window.location = 'home.html'
+
   $('#btn_login').on('click', function(e){
     e.preventDefault()
     processLogin()

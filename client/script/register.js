@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  // AUTH
+  if (localStorage.getItem('token')) window.location = 'home.html'
+  
   //process register
   $('#btn_register').on('click', function(e){
    e.preventDefault()
@@ -20,7 +23,7 @@ function processRegister(){
       // console.log(new_user);
       localStorage.setItem('token', new_user.token)
       window.location = 'home.html'
-      
+
       $('#username').val('')
       $('#password').val('')
       $('#email').val('')
