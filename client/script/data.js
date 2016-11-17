@@ -47,6 +47,18 @@ $(document).ready(function(){
     e.preventDefault()
     processUpdate()
   })
+
+  // search
+  // letter
+  $('#search').on('keyup', function(){
+    console.log($('#search').val());
+    var letter = $('#search').val()
+    $.ajax({
+    url: 'http://localhost:3000/api/datas?letter='+letter,
+    success: function(get_one_data){
+      console.log(get_one_data);
+    })
+  })
 })
 
 function processUpdate(){
