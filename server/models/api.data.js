@@ -11,4 +11,4 @@ let DatasSchema = new Schema ({
   })
 
 
-moduel.exports = mongoose.model('Users', DatasSchema)
+module.exports = mongoose.model('Users', DatasSchema)
