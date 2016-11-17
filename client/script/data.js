@@ -51,14 +51,44 @@ $(document).ready(function(){
   // search
   // letter
   $('#search').on('keyup', function(){
-    console.log($('#search').val());
+    console.log($('#search').val().length);
     var letter = $('#search').val()
-    $.ajax({
-    url: 'http://localhost:3000/api/datas?letter='+letter,
-    success: function(get_one_data){
-      console.log(get_one_data);
-    })
+    if(letter.length > 0 ){
+      $.ajax({
+        url: 'http://localhost:3000/api/datas?letter='+letter,
+        success: function(get_data){
+          console.log('baru',get_data);
+          var data_HTML = ``
+          for (var i = 0; i < get_data.length; i++) {
+            data_HTML += `
+            <tbody id="body_table">
+              <tr id="${get_data[i]._id}">
+                <td>
+                  ${get_data[i].letter}
+                </td>
+                <td>
+                  ${get_data[i].frequency}
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning" onclick="submitEditButton('${get_data[i]._id}')">Edit</button>
+                  <button type="button" class="btn btn-danger" onclick="submitDeleteButton('${get_data[i]._id}')">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+            `
+            $('#body_table').replaceWith(data_HTML)
+          }
+        }
+      })
+    }else{
+      $('#body_table').remove()
+      $('#table').append(`
+        <tbody id="body_table"></tbody>
+        `)
+      showAllData()
+    }
   })
+
 })
 
 function processUpdate(){

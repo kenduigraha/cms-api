@@ -17,13 +17,26 @@ let newData = (req, res) => {
 }
 
 let showAllData = (req, res) => {
-  Data.find({}, (err, all_data) => {
-    if(err){
-      res.status(400).json(err)
-    }else{
-      res.status(200).json(all_data)
-    }
-  }).sort({_id: -1})
+  // console.log(req.query.letter);
+  if(req.query.letter){
+    Data.find({
+      letter: req.query.letter
+    }, (err, get_one) => {
+      if(err){
+        res.status(400).json(err)
+      }else{
+        res.status(200).json(get_one)
+      }
+    }).sort({_id: -1})
+  }else{
+    Data.find({}, (err, all_data) => {
+      if(err){
+        res.status(400).json(err)
+      }else{
+        res.status(200).json(all_data)
+      }
+    }).sort({_id: -1})
+  }
 }
 
 let editData = (req, res) => {
