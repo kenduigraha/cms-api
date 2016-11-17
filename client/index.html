@@ -4,9 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
+  <title>CMS</title>
 </head>
 <body>
-
+  <!-- navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">cms-api</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </div>
+    </nav>
+  <!-- navbar -->
+  <div class="container">
+    <h1>Welcome to cms-api, please login or register</h1>
+  </div>
 </body>
+  <script src="./lib/jquery/dist/jquery.min.js"></script>
+  <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./lib/jwt-decode/build/jwt-decode.min.js"></script>
+  <script src="./script/login.js"></script>
 </html>
