@@ -4,15 +4,9 @@ const router = express.Router();
 const controller = require('../controllers/api.user')
 
 // register user
-router.post('/', controller.newuser);
+router.post('/', controller.newUser);
 
 // login user
 router.post('/login', controller.loginUser);
-
-// seed user
-router.post('/seed', controller.seedUser);
-
-// delete all user
-router.delete('/deleteall', controller.deleteAllUser);
 
 module.exports = router;
