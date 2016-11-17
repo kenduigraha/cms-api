@@ -21,7 +21,7 @@ let newUser = (req, res, next) => {
               sub: user._id,
               username: user.username,
               email: user.email
-            }, 'secret')
+            }, 'secret', { expiresIn: '1h' })
           })
         }
       })(req, res, next)
@@ -39,7 +39,7 @@ let loginUser = (req, res, next) => {
           sub: user._id,
           username: user.username,
           email: user.email
-        }, 'secret')
+        }, 'secret', { expiresIn: '1h' })
       })
     }
   })(req, res, next)
