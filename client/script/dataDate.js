@@ -45,6 +45,98 @@ $(document).ready(function(){
     e.preventDefault()
     processUpdate()
   })
+
+  // Search
+  // date
+  $('#search_date').on('keyup', function(){
+    var date = $('#search_date').val()
+    var frequency = $('#search_frequency').val()
+    console.log(frequency);
+    if(date.length > 0 ){
+      $.ajax({
+        url: 'http://localhost:3000/api/data_dates?date='+date,
+        success: function(get_data){
+          var data_HTML = ``
+          var date = ''
+          for (var i = 0; i < get_data.length; i++) {
+            var date = get_data[i].date.substring(0, 10)
+            data_HTML += `
+              <tr id="${get_data[i]._id}">
+                <td>
+                  ${date}
+                </td>
+                <td>
+                  ${get_data[i].frequency}
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning" onclick="submitEditButton('${get_data[i]._id}')">Edit</button>
+                  <button type="button" class="btn btn-danger" onclick="submitDeleteButton('${get_data[i]._id}')">Delete</button>
+                </td>
+              </tr>
+            `
+          }
+          $('#body_table').remove()
+          $('#table').append(`
+          <tbody id="body_table"></tbody>
+          `)
+          $('#body_table').append(data_HTML)
+        }
+      })
+    }else if(date.length > 0 && frequency.length > 0){
+      alert()
+    }else{
+      $('#body_table').remove()
+      $('#table').append(`
+        <tbody id="body_table"></tbody>
+        `)
+      showAllDataDate()
+    }
+
+  })
+
+  // frequency
+  $('#search_frequency').on('keyup', function(){
+    var date = $('#search_date').val()
+    var frequency = $('#search_frequency').val()
+    if(frequency.length > 0){
+      $.ajax({
+        url: 'http://localhost:3000/api/data_dates?frequency='+frequency,
+        success: function(get_data){
+          var data_HTML = ``
+          var date =''
+          for (var i = 0; i < get_data.length; i++) {
+            var date = get_data[i].date.substring(0, 10)
+            data_HTML += `
+              <tr id="${get_data[i]._id}">
+                <td>
+                  ${date}
+                </td>
+                <td>
+                  ${get_data[i].frequency}
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning" onclick="submitEditButton('${get_data[i]._id}')">Edit</button>
+                  <button type="button" class="btn btn-danger" onclick="submitDeleteButton('${get_data[i]._id}')">Delete</button>
+                </td>
+              </tr>
+            `
+          }
+          $('#body_table').remove()
+          $('#table').append(`
+          <tbody id="body_table"></tbody>
+          `)
+          $('#body_table').append(data_HTML)
+        }
+      })
+    }else{
+      $('#body_table').remove()
+      $('#table').append(`
+        <tbody id="body_table"></tbody>
+        `)
+      showAllDataDate()
+    }
+  })
+
 })
 
 function submitDeleteButton(id){

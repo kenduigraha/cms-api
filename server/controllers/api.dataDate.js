@@ -17,13 +17,47 @@ let newDataDate = (req, res) => {
 }
 
 let showAllDataDate = (req, res) => {
-  DataDate.find({}, (err, all_data) => {
-    if(err){
-      res.status(400).json(err)
-    }else{
-      res.status(200).json(all_data)
-    }
-  }).sort({_id: -1})
+  if(req.query.date){
+    DataDate.find({
+      date: req.query.date
+    }, (err, get_one) => {
+      if(err){
+        res.status(400).json(err)
+      }else{
+        res.status(200).json(get_one)
+      }
+    }).sort({_id: -1})
+
+  }else if(req.query.frequency){
+    DataDate.find({
+      frequency: req.query.frequency
+    }, (err, get_one) => {
+      if(err){
+        res.status(400).json(err)
+      }else{
+        res.status(200).json(get_one)
+      }
+    }).sort({_id: -1})
+  }else if(req.query.date && req.query.frequency){
+    DataDate.find({
+      date: req.query.date,
+      frequency: req.query.frequency
+    }, (err, get_one) => {
+      if(err){
+        res.status(400).json(err)
+      }else{
+        res.status(200).json(get_one)
+      }
+    }).sort({_id: -1})
+  }else{
+    DataDate.find({}, (err, all_data) => {
+      if(err){
+        res.status(400).json(err)
+      }else{
+        res.status(200).json(all_data)
+      }
+    }).sort({_id: -1})
+  }
 }
 
 let editDataDate = (req, res) => {

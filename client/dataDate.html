@@ -42,7 +42,18 @@
        <button type="button" class="btn btn-warning" id="btn_update">Update</button>
    </form>
 
-     <table class="table table-striped">
+   <!-- search -->
+   <div class="col-sm-4">
+     <label for="search_date">date :</label>
+     <input type="text" class="form-control" id="search_date" placeholder="yyyy-mm-dd">
+   </div>
+   <div class="col-sm-4">
+     <label for="search_frequency">Frequency :</label>
+     <input type="text" class="form-control" id="search_frequency" placeholder="0.000000">
+   </div>
+  <!-- end search -->
+
+     <table class="table table-striped" id="table">
        <thead>
          <tr>
            <th class="col-sm-4">Date</th>
